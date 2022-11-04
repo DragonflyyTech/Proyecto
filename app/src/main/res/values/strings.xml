@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">PA</string>
+    <string name="py">Psyche</string>
+    <string name="login">Iniciar Sesion</string>
+    <string name="user">Usuario</string>
+    <string name="cont">Contraseña</string>
+    <string name="ini">Iniciar</string>
+    <string name="olv">Olvide mi contraseña</string>
+    <string name="crear">Crear Cuenta</string>
+    <string name="regresar">‹</string>
+    <string name="regi">Registro</string>
+    <string name="diar">Diario</string>
+    <string name="chat">Chat</string>
+    <string name="test">Test</string>
+    <string name="cita">Citas</string>
+    <string name="registr">Registrarse</string>
+</resources>

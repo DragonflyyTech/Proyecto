@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/PA/app/src/main/res/layout/activity_login.xml" value="0.22327898550724637" />
+        <entry key="..\:/PA/app/src/main/res/layout/activity_main.xml" value="0.22327898550724637" />
+        <entry key="..\:/Versiones/PA/app/src/main/res/layout/._activity_inicio.xml" value="0.22327898550724637" />
+        <entry key="..\:/Versiones/PA/app/src/main/res/layout/activity_citas_p.xml" value="0.22327898550724637" />
+        <entry key="..\:/Versiones/PA/app/src/main/res/layout/activity_diario.xml" value="0.24003623188405798" />
+        <entry key="..\:/Versiones/PA/app/src/main/res/layout/activity_inicio.xml" value="0.24003623188405798" />
+        <entry key="..\:/Versiones/PA/app/src/main/res/layout/activity_inicio_b.xml" value="0.22327898550724637" />
+        <entry key="..\:/Versiones/PA/app/src/main/res/layout/activity_login.xml" value="0.24003623188405798" />
+        <entry key="..\:/Versiones/PA/app/src/main/res/layout/activity_registro.xml" value="0.24003623188405798" />
+        <entry key="app/src/main/res/drawable-v24/edittext2.xml" value="0.1015" />
+        <entry key="app/src/main/res/drawable/edittext.xml" value="0.1075" />
+        <entry key="app/src/main/res/layout/activity_inicio.xml" value="0.19746376811594202" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24583333333333332" />
+        <entry key="app/src/main/res/layout/activity_registro.xml" value="0.27830352783203127" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.19746376811594202" />
+      </ProjectState>
+    </option>
+  </component>
+</project>
