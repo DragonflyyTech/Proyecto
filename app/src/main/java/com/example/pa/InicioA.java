@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
@@ -14,6 +15,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class InicioA extends AppCompatActivity {
+
+    String aux = null;
+    Info info = null;
+    TextView textView;
+    Object object = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +51,26 @@ public class InicioA extends AppCompatActivity {
         );
         carousel.setData(list);
 
+        textView = findViewById(R.id.textViewusr);
+        Intent intent = getIntent();
+        if( intent != null)
+        {
+            aux = intent.getStringExtra("Usuario" );
+            if( aux != null && aux.length()> 0 )
+            {
+                textView.setText(aux);
+            }
+            if( intent.getExtras() != null ) {
+                object = intent.getExtras().get("Info");
+                if (object != null) {
+                    if (object instanceof Info) {
+                        info = (Info) object;
+                        textView.setText("Bienvenido  " + info.getUsuario());
+                    }
+                }
+            }
+        }
+
         buttondiario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,6 +86,5 @@ public class InicioA extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
     }
 }
