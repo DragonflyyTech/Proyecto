@@ -28,6 +28,8 @@ public class Login extends AppCompatActivity {
     public static String json = null;
     public static String usuario;
     public static String pass;
+    public static String usuario2;
+    public static String pass2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +38,7 @@ public class Login extends AppCompatActivity {
 
         Button buttonreg = findViewById(R.id.crearbtn);
         Button buttonin = findViewById(R.id.loginbtn);
+        Button button2in = findViewById(R.id.login2btn);
         EditText user = findViewById(R.id.userlogin);
         EditText contra = findViewById(R.id.pswlogin);
         Leer();
@@ -44,7 +47,7 @@ public class Login extends AppCompatActivity {
         buttonreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, Registro.class);
+                Intent intent = new Intent(Login.this, EligeUser.class);
                 startActivity(intent);
                 finish();
             }
@@ -57,12 +60,34 @@ public class Login extends AppCompatActivity {
                 Entrar(usuario, pass);
             }
         });
+        button2in.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                usuario2 = String.valueOf(user.getText());
+                pass2 = SHA.bytesToHex(SHA.createSha1(String.valueOf(contra.getText())));
+                Entrar2(usuario2, pass2);
+            }
+        });
     }
     public void Entrar(String usuario, String pass){
         Boolean ingresar = Boolean.FALSE;
         for (Info info : list){
             if(info.getUsuario().equals(usuario) && info.getContra().equals(pass)){
                 Intent intent = new Intent(Login.this, InicioA.class);
+                intent.putExtra("Info", info);
+                startActivity(intent);
+                ingresar = Boolean.TRUE;
+            }
+        }
+        if (ingresar==Boolean.FALSE){
+            Toast.makeText(getApplicationContext(), "Usuario y/o contraseña incorrectos", Toast.LENGTH_LONG).show();
+        }
+    }
+    public void Entrar2(String usuario2, String pass2){
+        Boolean ingresar = Boolean.FALSE;
+        for (Info info : list){
+            if(info.getUsuario().equals(usuario) && info.getContra().equals(pass)){
+                Intent intent = new Intent(Login.this, InicioB.class);
                 intent.putExtra("Info", info);
                 startActivity(intent);
                 ingresar = Boolean.TRUE;

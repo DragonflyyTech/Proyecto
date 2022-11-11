@@ -2,11 +2,11 @@ package com.example.pa;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
@@ -16,10 +16,19 @@ import java.util.List;
 
 public class InicioB extends AppCompatActivity{
 
+    String aux = null;
+    Info info = null;
+    TextView textView;
+    Object object = null;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_b);
+
+        Button citas = findViewById(R.id.btncitasE);
+        Button chatE = findViewById(R.id.btnchatE);
+        Button expediente = findViewById(R.id.btnexpediente);
 
         ImageCarousel carousel = findViewById(R.id.carousel);
         //carousel.registerLifecycle(getLifecycle());
@@ -42,15 +51,53 @@ public class InicioB extends AppCompatActivity{
         );
         carousel.setData(list);
 
-        Button citas = findViewById(R.id.btncitas);
+
         citas.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(InicioB.this, CitasP.class);
+                Intent intent = new Intent(InicioB.this, CitasE.class);
                 startActivity(intent);
                 finish();
             }
         });
+
+        chatE.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InicioB.this, ChatE.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        expediente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InicioB.this, Expediente.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        textView = findViewById(R.id.textViewusr);
+        Intent intent = getIntent();
+        if( intent != null)
+        {
+            aux = intent.getStringExtra("Usuario" );
+            if( aux != null && aux.length()> 0 )
+            {
+                textView.setText(aux);
+            }
+            if( intent.getExtras() != null ) {
+                object = intent.getExtras().get("Info");
+                if (object != null) {
+                    if (object instanceof Info) {
+                        info = (Info) object;
+                        textView.setText("Bienvenido  " + info.getUsuario());
+                    }
+                }
+            }
+        }
 
     }
 }

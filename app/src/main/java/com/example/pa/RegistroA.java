@@ -24,7 +24,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Registro extends AppCompatActivity {
+public class RegistroA extends AppCompatActivity {
 
     private Button btnregr;
     private EditText nombre;
@@ -46,23 +46,24 @@ public class Registro extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registro);
-        Button buttonregresar = findViewById(R.id.btnregresar);
-        buttonregresar.setOnClickListener(new View.OnClickListener() {
+        setContentView(R.layout.activity_registro2);
+
+        Button buttonregre = findViewById(R.id.btn2regresar);
+        buttonregre.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Registro.this, EligeUser.class);
+                Intent intent = new Intent(RegistroA.this, EligeUser.class);
                 startActivity(intent);
                 finish();
             }
         });
 
-        btnregr = findViewById(R.id.btnreg);
-        nombre = findViewById(R.id.regnom);
-        edad = findViewById(R.id.regedad);
-        email = findViewById(R.id.regmail);
-        user = findViewById(R.id.reguser);
-        contra = findViewById(R.id.regpwd);
+        btnregr = findViewById(R.id.btn2reg);
+        nombre = findViewById(R.id.reg2nom);
+        edad = findViewById(R.id.reg2edad);
+        email = findViewById(R.id.reg2mail);
+        user = findViewById(R.id.reg2user);
+        contra = findViewById(R.id.reg2pwd);
         Leer();
         json2List(json);
 
@@ -163,7 +164,7 @@ public class Registro extends AppCompatActivity {
             writeFile(json);
         }
         Toast.makeText(getApplicationContext(), "Registro Exitoso", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(Registro.this, Login.class);
+        Intent intent = new Intent(RegistroA.this, Login.class);
         startActivity(intent);
     }
     private boolean writeFile(String text)

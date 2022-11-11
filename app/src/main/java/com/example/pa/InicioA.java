@@ -28,7 +28,9 @@ public class InicioA extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
 
         Button buttondiario = findViewById(R.id.btndiario);
-        Button buttoncitas = findViewById(R.id.btncitas);
+        Button buttoncitas = findViewById(R.id.btncitasE);
+        Button buttontest = findViewById(R.id.btnexpediente);
+        Button buttonchatap = findViewById(R.id.btnchatE);
 
         ImageCarousel carousel = findViewById(R.id.carousel);
         //carousel.registerLifecycle(getLifecycle());
@@ -83,6 +85,20 @@ public class InicioA extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InicioA.this, CitasP.class);
+                startActivity(intent);
+            }
+        });
+        buttontest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InicioA.this, Test.class);
+                startActivity(intent);
+            }
+        });
+        buttonchatap.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InicioA.this, ChatP.class);
                 startActivity(intent);
             }
         });
