@@ -1,12 +1,19 @@
-package com.example.pa;
+package com.example.pa.Paciente;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.example.pa.Base.BDService;
+import com.example.pa.Base.BDUsers;
+import com.example.pa.R;
+import com.example.pa.Test;
 
 import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
 import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
@@ -17,15 +24,20 @@ import java.util.List;
 public class InicioA extends AppCompatActivity {
 
     String aux = null;
-    Info info = null;
+    //Info info = null;
+
+    public static Info info = null;
     TextView textView;
     Object object = null;
+
+    private List<Info> lista;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Button buttondiario = findViewById(R.id.btndiario);
         Button buttoncitas = findViewById(R.id.btncitasE);
@@ -53,7 +65,10 @@ public class InicioA extends AppCompatActivity {
         );
         carousel.setData(list);
 
+
+
         textView = findViewById(R.id.textViewusr);
+
         Intent intent = getIntent();
         if( intent != null)
         {

@@ -14,40 +14,37 @@
         android:theme="@style/Theme.PA"
         tools:targetApi="31">
         <activity
-            android:name=".CitasE"
+            android:name=".Especialista.CitasE"
             android:exported="false" />
         <activity
-            android:name=".ChatE"
+            android:name=".Especialista.ChatE"
             android:exported="false" />
         <activity
-            android:name=".Expediente"
+            android:name=".Especialista.Expediente"
             android:exported="false" />
         <activity
-            android:name=".ChatP"
+            android:name=".Paciente.ChatP"
             android:exported="false" />
         <activity
             android:name=".Test"
             android:exported="false" />
         <activity
-            android:name=".RegistroA"
+            android:name=".Paciente.RegistroA"
             android:exported="false" />
         <activity
-            android:name=".EligeUser"
+            android:name=".Paciente.CitasP"
             android:exported="false" />
         <activity
-            android:name=".CitasP"
+            android:name=".Especialista.InicioB"
             android:exported="false" />
         <activity
-            android:name=".InicioB"
+            android:name=".Paciente.Diario"
             android:exported="false" />
         <activity
-            android:name=".Diario"
+            android:name=".Paciente.InicioA"
             android:exported="false" />
         <activity
-            android:name=".InicioA"
-            android:exported="false" />
-        <activity
-            android:name=".Registro"
+            android:name=".Especialista.Registro"
             android:exported="false" />
         <activity
             android:name=".Login"

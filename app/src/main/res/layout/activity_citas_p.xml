@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EBE8E1"
-    tools:context=".CitasP">
+    tools:context=".Paciente.CitasP">
 
     <TextView
         android:id="@+id/textView22"

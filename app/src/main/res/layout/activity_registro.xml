@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="#A2B6CE"
     android:orientation="vertical"
-    tools:context=".Registro">
+    tools:context=".Especialista.Registro">
 
     <LinearLayout
         android:layout_width="match_parent"
