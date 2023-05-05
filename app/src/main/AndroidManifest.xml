@@ -14,25 +14,13 @@
         android:theme="@style/Theme.PA"
         tools:targetApi="31">
         <activity
-            android:name=".Especialista.CitasE"
-            android:exported="false" />
-        <activity
-            android:name=".Especialista.ChatE"
-            android:exported="false" />
-        <activity
             android:name=".Especialista.Expediente"
-            android:exported="false" />
-        <activity
-            android:name=".Paciente.ChatP"
             android:exported="false" />
         <activity
             android:name=".Test"
             android:exported="false" />
         <activity
             android:name=".Paciente.RegistroA"
-            android:exported="false" />
-        <activity
-            android:name=".Paciente.CitasP"
             android:exported="false" />
         <activity
             android:name=".Especialista.InicioB"

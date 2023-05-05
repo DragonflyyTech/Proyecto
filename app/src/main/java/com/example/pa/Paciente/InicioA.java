@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import com.example.pa.Base.BDService;
@@ -25,7 +26,6 @@ public class InicioA extends AppCompatActivity {
 
     String aux = null;
     //Info info = null;
-
     public static Info info = null;
     TextView textView;
     Object object = null;
@@ -39,32 +39,8 @@ public class InicioA extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        Button buttondiario = findViewById(R.id.btndiario);
-        Button buttoncitas = findViewById(R.id.btncitasE);
-        Button buttontest = findViewById(R.id.btnexpediente);
-        Button buttonchatap = findViewById(R.id.btnchatE);
-
-        ImageCarousel carousel = findViewById(R.id.carousel);
-        //carousel.registerLifecycle(getLifecycle());
-        List<CarouselItem> list = new ArrayList<>();
-
-        list.add(
-                new CarouselItem(
-                        R.drawable.a
-                )
-        );
-        list.add(
-                new CarouselItem(
-                        R.drawable.b
-                )
-        );
-        list.add(
-                new CarouselItem(
-                        R.drawable.c
-                )
-        );
-        carousel.setData(list);
-
+        ImageButton buttondiario = findViewById(R.id.btndiario);
+        ImageButton buttontest = findViewById(R.id.btntest);
 
 
         textView = findViewById(R.id.textViewusr);
@@ -95,25 +71,10 @@ public class InicioA extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        buttoncitas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InicioA.this, CitasP.class);
-                startActivity(intent);
-            }
-        });
         buttontest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InicioA.this, Test.class);
-                startActivity(intent);
-            }
-        });
-        buttonchatap.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(InicioA.this, ChatP.class);
                 startActivity(intent);
             }
         });
