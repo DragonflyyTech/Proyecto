@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.pa.Base.BDUsers;
+import com.example.pa.Base.BDEspe;
 import com.example.pa.Login;
 import com.example.pa.R;
 import com.example.pa.SHA;
@@ -91,8 +91,8 @@ public class RegistroA extends AppCompatActivity {
                 usr = String.valueOf(user.getText());
                 mail = String.valueOf(email.getText());
 
-                BDUsers bdUsers = new BDUsers(RegistroA.this);
-                long id = bdUsers.saveUser(info);
+                BDEspe bdEspe = new BDEspe(RegistroA.this);
+                long id = bdEspe.saveUser(info);
                 if (id > 0){
                     Toast.makeText(RegistroA.this, "Registro Guardado",Toast.LENGTH_LONG).show();
                     Intent intent4 = new Intent(RegistroA.this, Login.class);

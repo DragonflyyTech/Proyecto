@@ -11,8 +11,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.pa.Base.BDUser;
 import com.example.pa.Base.BDEspe;
-import com.example.pa.Base.BDUsers;
 import com.example.pa.Especialista.InicioB;
 import com.example.pa.Especialista.Registro;
 import com.example.pa.Paciente.Info;
@@ -67,15 +67,15 @@ public class Login extends AppCompatActivity {
     public void Entrar(String usuario, String pass){
         Boolean ingresar = Boolean.FALSE;
 
-        BDUsers dbUsers = new BDUsers(Login.this);
-        BDEspe bdEspe = new BDEspe(Login.this);
+        BDEspe dbUsers = new BDEspe(Login.this);
+        BDUser bdUser = new BDUser(Login.this);
         Info info = dbUsers.GetUsuario(usuario);
-        Info2 info2 = bdEspe.GetEspecialista(usuario);
+        Info2 info2 = bdUser.GetEspecialista(usuario);
 
         if(info!=null) {
             if (info.getContra().equals(pass)) {
                 Intent intent = new Intent(Login.this, InicioB.class);
-                intent.putExtra("Info", info);
+                intent.putExtra("User", usuario);
                 startActivity(intent);
                 ingresar = Boolean.TRUE;
             }
@@ -83,7 +83,8 @@ public class Login extends AppCompatActivity {
             if (info2!=null){
                 if (info2.getContra().equals(pass)){
                     Intent intent = new Intent(Login.this, InicioA.class);
-                    intent.putExtra("Info2", info2);
+                    //intent.putExtra("Info2", info2);
+                    intent.putExtra("User", usuario);
                     startActivity(intent);
                     ingresar = Boolean.TRUE;
                 }

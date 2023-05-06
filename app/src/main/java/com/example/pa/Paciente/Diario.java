@@ -7,21 +7,27 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pa.Base.BDDiario;
+import com.example.pa.Base.BDUser;
+import com.example.pa.Info2;
 import com.example.pa.InfoDiario;
 import com.example.pa.R;
 
+import java.util.Calendar;
 import java.util.List;
 
 public class Diario extends AppCompatActivity {
 
     private List<InfoDiario> lista;
     private Info info = new Info();
-
     Object object = null;
+
+    EditText titulo, contenido;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,16 +37,35 @@ public class Diario extends AppCompatActivity {
 
         Button buttonregresar = findViewById(R.id.regresar);
         Button btnguardar = findViewById(R.id.btnenvia);
+        TextView fecha = findViewById(R.id.textViewFecha);
+
+        Bundle inte = getIntent().getExtras();
+        String us = inte.getString("User");
+        BDUser bdUser = new BDUser(Diario.this);
+        Info2 info2 = bdUser.GetEspecialista(us);
+        String uu = info2.getUsuario();
 
         buttonregresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Intent intent = new Intent(Diario.this, InicioA.class);
+                intent.putExtra("User", uu);
                 startActivity(intent);
                 finish();
 
             }
         });
+
+        Calendar calendar = Calendar.getInstance();
+        int dianow = calendar.get(Calendar.DATE);
+        int mesnow = calendar.get(Calendar.MONTH);
+        int anionow = calendar.get(Calendar.YEAR);
+        mesnow++;
+        fecha.setText("Fecha: " + dianow + " / "+mesnow+" / "+anionow);
+
+        titulo = findViewById(R.id.titulo);
+        contenido = findViewById(R.id.contenido);
 
         btnguardar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,16 +84,13 @@ public class Diario extends AppCompatActivity {
                     }
                 }
 
-                String titulo = String.valueOf(R.id.titulo);
-                String conte = String.valueOf(R.id.contenido);
-
                 RadioButton feliz = findViewById(R.id.feliz);
                 RadioButton triste = findViewById(R.id.triste);
                 RadioButton enojado = findViewById(R.id.enoajdo);
                 RadioButton serio = findViewById(R.id.serio);
 
 
-                if (titulo.length()==0 || conte.length()==0){
+                if (titulo.getText().length()==0 || contenido.getText().length()==0){
                     Toast.makeText(getApplicationContext(),"Campos Vacios", Toast.LENGTH_LONG).show();
                 }
                 else{
@@ -87,15 +109,17 @@ public class Diario extends AppCompatActivity {
                         infoDiario.setEmocion(String.valueOf(serio.getText()));
                     }
 
-                    infoDiario.setTitulo(titulo);
-                    infoDiario.setContenido(conte);
+                    infoDiario.setTitulo(String.valueOf(titulo.getText()));
+                    infoDiario.setContenido(String.valueOf(contenido.getText()));
                     infoDiario.setId_user(info.getId_user());
+                    infoDiario.setFecha((String) fecha.getText());
 
                     BDDiario bdDiario = new BDDiario(Diario.this);
                     long id = bdDiario.saveDiario(infoDiario);
                     if(id>0){
                         Toast.makeText(Diario.this, "Guardado",Toast.LENGTH_LONG).show();
                         Intent intent2 = new Intent(Diario.this, InicioA.class);
+                        intent2.putExtra("User", uu);
                         startActivity(intent2);
                     }else
                     {

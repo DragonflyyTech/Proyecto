@@ -14,6 +14,7 @@ public class BDService extends SQLiteOpenHelper {
     public static final String TABLE_USUARIOS = "t_usuarios";
     public static final String TABLE_ESPE = "t_espe";
     public static final String TABLE_DIARIO = "t_diario";
+    public static final String TABLE_TEST = "t_test";
 
     public BDService(@Nullable Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -43,6 +44,16 @@ public class BDService extends SQLiteOpenHelper {
                 "contenido TEXT ," +
                 "emocion TEXT ," +
                 "titulo TEXT," +
+                "fecha TEXT," +
+                "id INTEGER NOT NULL)");
+
+        sqLiteDatabase.execSQL("CREATE TABLE "+ TABLE_TEST +"(" +
+                "id_test INTEGER PRIMARY KEY AUTOINCREMENT," +
+                "pregunta1 TEXT ," +
+                "pregunta2 TEXT ," +
+                "pregunta3 TEXT," +
+                "pregunta4 TEXT," +
+                "pregunta5 TEXT," +
                 "id INTEGER NOT NULL)");
     }
 
@@ -52,6 +63,7 @@ public class BDService extends SQLiteOpenHelper {
         sqLiteDatabase.execSQL("DROP TABLE " + TABLE_USUARIOS);
         sqLiteDatabase.execSQL("DROP TABLE " + TABLE_ESPE);
         sqLiteDatabase.execSQL("DROP TABLE " + TABLE_DIARIO);
+        sqLiteDatabase.execSQL("DROP TABLE " + TABLE_TEST);
         onCreate(sqLiteDatabase);
 
     }

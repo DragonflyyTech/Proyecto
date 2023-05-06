@@ -8,7 +8,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.example.pa.Info2;
+import com.example.pa.Paciente.Info;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,19 +16,18 @@ import java.util.List;
 public class BDEspe extends BDService{
 
     Context context;
-
     public BDEspe(@Nullable Context context) {
         super(context);
         this.context=context;
     }
-    public long saveEspecialista(Info2 info2){
+    public long saveUser(Info info){
         long id = 0;
         try{
             BDService bdService = new BDService(context);
             SQLiteDatabase db = bdService.getWritableDatabase();
 
             ContentValues values= new ContentValues();
-            id = db.insert(TABLE_ESPE, null, UserContract.EspeEntry.toContentValues(info2));
+            id = db.insert(TABLE_USUARIOS, null, UserContract.UserEntry.toContentValues(info));
 
         }catch(Exception ex){
             ex.toString();
@@ -38,15 +37,15 @@ public class BDEspe extends BDService{
         }
     }
 
-    public List<Info2> getEspecialistas( )
+    public List<Info> getUsuarios( )
     {
         SQLiteDatabase sqLiteDatabase = null;
         Cursor cursor = null;
-        List<Info2> especialistas = null;
-        Info2 info2 = null;
+        List<Info> usuarios = null;
+        Info info = null;
 
         sqLiteDatabase = getReadableDatabase();
-        cursor = sqLiteDatabase.rawQuery("SELECT*FROM "+TABLE_ESPE,null);
+        cursor = sqLiteDatabase.rawQuery("SELECT*FROM "+TABLE_USUARIOS,null);
         if( cursor == null )
         {
             return null;
@@ -60,70 +59,70 @@ public class BDEspe extends BDService{
             return null;
         }
         Log.d(TAG, "" + cursor.getCount());
-        especialistas = new ArrayList<Info2>( );
+        usuarios = new ArrayList<Info>( );
         for( int i = 0; i < cursor.getCount(); i++)
         {
-            info2 = new Info2( );
-            info2.setUsuario(cursor.getString(0));
-            info2.setContra(cursor.getString(1));
-            info2.setNombre(cursor.getString( 2 ) );
-            info2.setMail(cursor.getString(3));
-            info2.setEdad(cursor.getString(4));
-            especialistas.add( info2 );
+            info = new Info( );
+            info.setUsuario(cursor.getString(0));
+            info.setContra(cursor.getString(1));
+            info.setNombre(cursor.getString( 2 ) );
+            info.setMail(cursor.getString(3));
+            info.setEdad(cursor.getString(4));
+            usuarios.add( info );
             cursor.moveToNext( );
         }
-        return especialistas;
+        return usuarios;
     }
-    public Info2 GetEspecialista(String user){
-        Info2 info2 = new Info2();
+    public Info GetUsuario(String user){
+        Info info = new Info();
         BDService bdService = new BDService(context);
         SQLiteDatabase db = bdService.getReadableDatabase();
         Cursor cursor=null;
-        String query = "SELECT * FROM t_espe WHERE usuario = ?";
+        String query = "SELECT * FROM t_usuarios WHERE usuario = ?";
         String[] args = {user};
 
         cursor = db.rawQuery(query,args);
         if (cursor.moveToFirst()) {
-            info2.setId_espe(cursor.getInt(0));
-            info2.setUsuario(cursor.getString(1));
-            info2.setContra(cursor.getString(2));
-            info2.setNombre(cursor.getString( 3 ) );
-            info2.setMail(cursor.getString(4));
-            info2.setEdad(cursor.getString(5));
-            return info2;
+            info.setId_user(cursor.getInt(0));
+            info.setUsuario(cursor.getString(1));
+            info.setContra(cursor.getString(2));
+            info.setNombre(cursor.getString( 3 ) );
+            info.setMail(cursor.getString(4));
+            info.setEdad(cursor.getString(5));
+            return info;
         }
         cursor.close();
         return null;
     }
 
-    public Info2 GetEspecialista(String user,String email){
-        Info2 info2 = new Info2();
+    public Info GetUsuario(String user,String email){
+        Info info = new Info();
         BDService bdService = new BDService(context);
         SQLiteDatabase db = bdService.getReadableDatabase();
         Cursor cursor = null;
-        String query = "SELECT * FROM t_espe WHERE usuario = ? AND email = ?";
+        String query = "SELECT * FROM t_usuarios WHERE usuario = ? AND email = ?";
         String[] args = {user,email};
 
         cursor = db.rawQuery(query,args);
         if (cursor.moveToFirst()) {
-            info2.setId_espe(cursor.getInt(0));
-            info2.setUsuario(cursor.getString(1));
-            info2.setContra(cursor.getString(2));
-            info2.setNombre(cursor.getString( 3 ) );
-            info2.setMail(cursor.getString(4));
-            info2.setEdad(cursor.getString(5));
-            return info2;
+            info.setId_user(cursor.getInt(0));
+            info.setUsuario(cursor.getString(1));
+            info.setContra(cursor.getString(2));
+            info.setNombre(cursor.getString( 3 ) );
+            info.setMail(cursor.getString(4));
+            info.setEdad(cursor.getString(5));
+            return info;
         }
         cursor.close();
         return null;
     }
 
-    public boolean EditEspecialista(String user,String contra){
+    public boolean EditUser(String user,String contra){
         boolean correcto = false;
         BDService bdService = new BDService(context);
         SQLiteDatabase db = bdService.getWritableDatabase();
         try{
-            db.execSQL("UPDATE " + TABLE_ESPE + " SET contra = '" + contra + "' WHERE usuario ='" + user + "'");
+            db.execSQL("UPDATE " + TABLE_USUARIOS + " SET contra = '" + contra + "' WHERE usuario ='" + user + "'");
             correcto = true;
         }catch(Exception ex){
             ex.toString();

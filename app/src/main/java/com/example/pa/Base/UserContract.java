@@ -2,11 +2,13 @@ package com.example.pa.Base;
 
 import static com.example.pa.Base.BDService.TABLE_DIARIO;
 import static com.example.pa.Base.BDService.TABLE_ESPE;
+import static com.example.pa.Base.BDService.TABLE_TEST;
 import static com.example.pa.Base.BDService.TABLE_USUARIOS;
 
 import android.content.ContentValues;
 import android.provider.BaseColumns;
 
+import com.example.pa.InfoTest;
 import com.example.pa.Paciente.Info;
 import com.example.pa.Info2;
 import com.example.pa.InfoDiario;
@@ -77,6 +79,7 @@ public class UserContract implements Serializable {
                     "contenido TEXT," +
                     "emocion TEXT," +
                     "titulo TEXT," +
+                    "fecha TEXT," +
                     "id INTEGER NOT NULL," +
                     ")";
             return table;
@@ -87,7 +90,36 @@ public class UserContract implements Serializable {
             values.put("contenido", infoDiario.getContenido());
             values.put("emocion", infoDiario.getEmocion());
             values.put("titulo", infoDiario.getTitulo());
+            values.put("fecha", infoDiario.getFecha());
             values.put("id", infoDiario.getId_user());
+            return values;
+        }
+    }
+
+    public abstract static class TestEntry implements BaseColumns{
+        public static final String getCreateTable( )
+        {
+            String table ="CREATE TABLE "+ TABLE_TEST +"(" +
+                    "id_test INTEGER PRIMARY KEY AUTOINCREMENT," +
+                    "pregunta1 TEXT," +
+                    "pregunta2 TEXT," +
+                    "pregunta3 TEXT," +
+                    "pregunta4 TEXT," +
+                    "pregunta5 TEXT," +
+                    "id INTEGER NOT NULL," +
+                    ")";
+            return table;
+        }
+        public static ContentValues toContentValues(InfoTest infoTest)
+        {
+            ContentValues values = new ContentValues();
+            values.put("pregunta1", infoTest.getPregunta1());
+            values.put("pregunta2", infoTest.getPregunta2());
+            values.put("pregunta3", infoTest.getPregunta3());
+            values.put("pregunta4", infoTest.getPregunta4());
+            values.put("pregunta5", infoTest.getPregunta5());
+            values.put("id", infoTest.getId_user());
+
             return values;
         }
     }

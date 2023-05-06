@@ -8,6 +8,8 @@ public class InfoDiario implements Serializable {
     private String contenido;
     private String emocion;
     private String titulo;
+
+    private String fecha;
     private int id_user;
 
     public int getId_user() {
@@ -48,5 +50,13 @@ public class InfoDiario implements Serializable {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
+    }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 }

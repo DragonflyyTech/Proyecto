@@ -3,31 +3,23 @@ package com.example.pa.Paciente;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
-import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.TextView;
 
-import com.example.pa.Base.BDService;
-import com.example.pa.Base.BDUsers;
+import com.example.pa.Base.BDUser;
+import com.example.pa.Info2;
+import com.example.pa.Login;
 import com.example.pa.R;
-import com.example.pa.Test;
 
-import org.imaginativeworld.whynotimagecarousel.ImageCarousel;
-import org.imaginativeworld.whynotimagecarousel.model.CarouselItem;
-
-import java.util.ArrayList;
 import java.util.List;
 
 public class InicioA extends AppCompatActivity {
 
     String aux = null;
-    //Info info = null;
-    public static Info info = null;
-    TextView textView;
+    Info2 info2 = null;
     Object object = null;
 
     private List<Info> lista;
@@ -41,33 +33,22 @@ public class InicioA extends AppCompatActivity {
 
         ImageButton buttondiario = findViewById(R.id.btndiario);
         ImageButton buttontest = findViewById(R.id.btntest);
+        Button salir = findViewById(R.id.salir);
+        Button butt = findViewById(R.id.button2);
 
 
-        textView = findViewById(R.id.textViewusr);
-
-        Intent intent = getIntent();
-        if( intent != null)
-        {
-            aux = intent.getStringExtra("Usuario" );
-            if( aux != null && aux.length()> 0 )
-            {
-                textView.setText(aux);
-            }
-            if( intent.getExtras() != null ) {
-                object = intent.getExtras().get("Info");
-                if (object != null) {
-                    if (object instanceof Info) {
-                        info = (Info) object;
-                        textView.setText("Bienvenido  " + info.getUsuario());
-                    }
-                }
-            }
-        }
+        Bundle inte = getIntent().getExtras();
+        String us = inte.getString("User");
+        BDUser bdUser = new BDUser(InicioA.this);
+        info2 = bdUser.GetEspecialista(us);
+        String uu = info2.getUsuario();
+        butt.setText("Bienvenido  " + uu);
 
         buttondiario.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InicioA.this, Diario.class);
+                intent.putExtra("User", uu);
                 startActivity(intent);
             }
         });
@@ -75,6 +56,15 @@ public class InicioA extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(InicioA.this, Test.class);
+                intent.putExtra("User", uu);
+                startActivity(intent);
+            }
+        });
+
+        salir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(InicioA.this, Login.class);
                 startActivity(intent);
             }
         });

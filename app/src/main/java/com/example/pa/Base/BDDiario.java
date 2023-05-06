@@ -66,7 +66,8 @@ public class BDDiario extends BDService{
             infoDiario.setContenido(cursor.getString(1));
             infoDiario.setEmocion(cursor.getString(2));
             infoDiario.setTitulo(cursor.getString(3));
-            infoDiario.setId_user(cursor.getInt(4));
+            infoDiario.setFecha(cursor.getString(4));
+            infoDiario.setId_user(cursor.getInt(5));
             diarios.add(infoDiario);
             cursor.moveToNext( );
         }
