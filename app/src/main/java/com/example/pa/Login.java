@@ -23,7 +23,8 @@ import java.util.List;
 
 public class Login extends AppCompatActivity {
 
-    private List<Info> list;
+    public static List<Info> list;
+    public static List<Info2> lista;
     public static String TAG = "mensaje";
     public static String json = null;
     public static String usuario;
@@ -42,6 +43,7 @@ public class Login extends AppCompatActivity {
 
         Button buttonreg = findViewById(R.id.crearbtn);
         Button buttonin = findViewById(R.id.loginbtn);
+        Button olvide = findViewById(R.id.olvidebtn);
         EditText user = findViewById(R.id.userlogin);
         EditText contra = findViewById(R.id.pswlogin);
 
@@ -49,6 +51,14 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 elige();
+            }
+        });
+        olvide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(Login.this, Olvide.class);
+                startActivity(intent);
+                finish();
             }
         });
         buttonin.setOnClickListener(new View.OnClickListener() {
