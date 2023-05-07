@@ -23,7 +23,7 @@
             android:name=".Paciente.Test1"
             android:exported="false" />
         <activity
-            android:name=".Paciente.RegistroA"
+            android:name=".Especialista.RegistroA"
             android:exported="false" />
         <activity
             android:name=".Especialista.InicioB"
@@ -35,7 +35,7 @@
             android:name=".Paciente.InicioA"
             android:exported="false" />
         <activity
-            android:name=".Especialista.Registro"
+            android:name=".Paciente.Registro"
             android:exported="false" />
         <activity
             android:name=".Login"

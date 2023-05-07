@@ -14,10 +14,10 @@ import android.widget.Toast;
 import com.example.pa.Base.BDUser;
 import com.example.pa.Base.BDEspe;
 import com.example.pa.Especialista.InicioB;
-import com.example.pa.Especialista.Registro;
+import com.example.pa.Paciente.Registro;
 import com.example.pa.Paciente.Info;
 import com.example.pa.Paciente.InicioA;
-import com.example.pa.Paciente.RegistroA;
+import com.example.pa.Especialista.RegistroA;
 
 import java.util.List;
 
@@ -48,10 +48,6 @@ public class Login extends AppCompatActivity {
         buttonreg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
-                Intent intent = new Intent(Login.this, EligeUser.class);
-                startActivity(intent);
-                finish();*/
                 elige();
             }
         });
