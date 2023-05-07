@@ -9,7 +9,6 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.example.pa.Base.BDUser;
-import com.example.pa.Info2;
 import com.example.pa.R;
 
 public class Test extends AppCompatActivity {

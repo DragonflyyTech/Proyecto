@@ -13,7 +13,6 @@ import android.widget.Toast;
 
 import com.example.pa.Base.BDEspe;
 import com.example.pa.Login;
-import com.example.pa.Paciente.Info;
 import com.example.pa.R;
 import com.example.pa.SHA;
 

@@ -4,94 +4,73 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#EBE8E1"
     android:orientation="vertical"
-    tools:context=".Especialista.InicioB">
-
+    android:background="#EBE8E1"
+    tools:context=".Especialista.Testes">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="120dp">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="130dp"
+            android:layout_height="match_parent"
             android:background="#A2B6CE">
 
+            <Button
+                android:id="@+id/btn10regresar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:fontFamily="@font/monse"
+                android:text="@string/regresar"
+                android:textAlignment="center"
+                android:textColor="#020202"
+                android:textSize="40sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.0" />
+
             <TextView
-                android:id="@+id/textView15"
+                android:id="@+id/textView56"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monse"
-                android:text="@string/py"
+                android:text="Test
+"
                 android:textColor="#020202"
-                android:textSize="20dp"
+                android:textSize="30dp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.047"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.75" />
+                app:layout_constraintVertical_bias="0.37" />
 
             <TextView
-                android:id="@+id/textViewusr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/monse"
                 android:text="Usuario"
                 android:textColor="#020202"
-                android:textSize="20dp"
+                android:textSize="18dp"
+                android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.25" />
+                app:layout_constraintVertical_bias="0.833" />
 
-            <Button
-                android:id="@+id/salir2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@android:color/transparent"
-                android:fontFamily="@font/monse"
-                android:text="Cerrar sesión"
-                android:textColor="@color/black"
-                android:textSize="12dp"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.939"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.804" />
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.cardview.widget.CardView>
 
-    <pl.droidsonroids.gif.GifImageView
-        android:layout_width="430dp"
-        android:layout_height="240dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:src="@drawable/espe" />
-
-    <TextView
-        android:id="@+id/textView32"
-        android:layout_width="370dp"
-        android:layout_height="35dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:background="#C8DFDD"
-        android:fontFamily="@font/monse"
-        android:gravity="center"
-        android:text="Pacientes"
-        android:textSize="17dp"
-        android:textStyle="bold" />
-
     <ListView
-        android:id="@+id/listview1"
+        android:id="@+id/listView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp" />
+        android:layout_marginTop="15dp" />
 
 </LinearLayout>

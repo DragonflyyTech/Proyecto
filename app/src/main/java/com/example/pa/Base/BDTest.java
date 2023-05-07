@@ -8,8 +8,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.example.pa.InfoDiario;
-import com.example.pa.InfoTest;
+import com.example.pa.Paciente.InfoTest;
 
 import java.util.ArrayList;
 import java.util.List;

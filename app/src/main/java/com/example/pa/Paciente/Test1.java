@@ -12,8 +12,7 @@ import android.widget.Toast;
 
 import com.example.pa.Base.BDUser;
 import com.example.pa.Base.BDTest;
-import com.example.pa.Info2;
-import com.example.pa.InfoTest;
+import com.example.pa.Especialista.Info;
 import com.example.pa.R;
 
 import java.util.List;

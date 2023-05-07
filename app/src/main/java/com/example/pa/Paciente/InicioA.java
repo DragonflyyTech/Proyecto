@@ -14,7 +14,6 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.pa.Base.BDUser;
-import com.example.pa.Info2;
 import com.example.pa.Login;
 import com.example.pa.R;
 import com.example.pa.SHA;

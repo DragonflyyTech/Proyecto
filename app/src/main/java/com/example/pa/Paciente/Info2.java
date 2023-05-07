@@ -1,4 +1,4 @@
-package com.example.pa;
+package com.example.pa.Paciente;
 
 import java.io.Serializable;
 

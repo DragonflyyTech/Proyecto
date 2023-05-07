@@ -8,7 +8,7 @@ import android.util.Log;
 
 import androidx.annotation.Nullable;
 
-import com.example.pa.Info2;
+import com.example.pa.Paciente.Info2;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,11 +59,12 @@ public class BDUser extends BDService {
         especialistas = new ArrayList<Info2>();
         for (int i = 0; i < cursor.getCount(); i++) {
             info2 = new Info2();
-            info2.setUsuario(cursor.getString(0));
-            info2.setContra(cursor.getString(1));
-            info2.setNombre(cursor.getString(2));
-            info2.setMail(cursor.getString(3));
-            info2.setEdad(cursor.getString(4));
+            info2.setId_espe(cursor.getInt(0));
+            info2.setUsuario(cursor.getString(1));
+            info2.setContra(cursor.getString(2));
+            info2.setNombre(cursor.getString(3));
+            info2.setMail(cursor.getString(4));
+            info2.setEdad(cursor.getString(5));
             especialistas.add(info2);
             cursor.moveToNext();
         }

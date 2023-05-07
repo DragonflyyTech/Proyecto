@@ -19,7 +19,9 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.pa.Base.BDEspe;
 import com.example.pa.Base.BDUser;
-import com.example.pa.Paciente.Info;
+import com.example.pa.Especialista.Info;
+import com.example.pa.Especialista.InicioB;
+import com.example.pa.Paciente.Info2;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -46,8 +48,18 @@ public class Olvide extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         Button btnRecupera = findViewById(R.id.Recibir);
+        Button reg = findViewById(R.id.btn11regresar);
         EditText user = findViewById(R.id.olvideuser);
         EditText mail = findViewById(R.id.olvidemail);
+
+        reg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Olvide.this, Login.class);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         list = Login.list;
         lista = Login.lista;

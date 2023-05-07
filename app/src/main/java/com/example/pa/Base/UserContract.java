@@ -8,10 +8,10 @@ import static com.example.pa.Base.BDService.TABLE_USUARIOS;
 import android.content.ContentValues;
 import android.provider.BaseColumns;
 
-import com.example.pa.InfoTest;
-import com.example.pa.Paciente.Info;
-import com.example.pa.Info2;
-import com.example.pa.InfoDiario;
+import com.example.pa.Paciente.InfoTest;
+import com.example.pa.Especialista.Info;
+import com.example.pa.Paciente.Info2;
+import com.example.pa.Paciente.InfoDiario;
 
 import java.io.Serializable;
 

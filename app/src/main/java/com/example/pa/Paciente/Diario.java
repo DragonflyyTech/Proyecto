@@ -14,8 +14,7 @@ import android.widget.Toast;
 
 import com.example.pa.Base.BDDiario;
 import com.example.pa.Base.BDUser;
-import com.example.pa.Info2;
-import com.example.pa.InfoDiario;
+import com.example.pa.Especialista.Info;
 import com.example.pa.R;
 
 import java.util.Calendar;

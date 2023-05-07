@@ -14,8 +14,9 @@ import android.widget.Toast;
 import com.example.pa.Base.BDUser;
 import com.example.pa.Base.BDEspe;
 import com.example.pa.Especialista.InicioB;
+import com.example.pa.Paciente.Info2;
 import com.example.pa.Paciente.Registro;
-import com.example.pa.Paciente.Info;
+import com.example.pa.Especialista.Info;
 import com.example.pa.Paciente.InicioA;
 import com.example.pa.Especialista.RegistroA;
 
@@ -81,7 +82,7 @@ public class Login extends AppCompatActivity {
         if(info!=null) {
             if (info.getContra().equals(pass)) {
                 Intent intent = new Intent(Login.this, InicioB.class);
-                intent.putExtra("User", usuario);
+                intent.putExtra("UserE", usuario);
                 startActivity(intent);
                 ingresar = Boolean.TRUE;
             }

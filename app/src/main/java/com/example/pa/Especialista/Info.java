@@ -1,6 +1,6 @@
-package com.example.pa.Paciente;
+package com.example.pa.Especialista;
 
-import com.example.pa.InfoDiario;
+import com.example.pa.Paciente.InfoDiario;
 
 import java.io.Serializable;
 import java.util.ArrayList;
