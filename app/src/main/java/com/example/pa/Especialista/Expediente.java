@@ -36,7 +36,8 @@ public class Expediente extends AppCompatActivity {
         String us = inte.getString("User");
         BDUser bdUser = new BDUser(Expediente.this);
         info2 = bdUser.GetEspecialista(us);
-        textView.setText(String.valueOf(info2.getUsuario()));
+        String useer = info2.getUsuario();
+        textView.setText(String.valueOf(useer));
 
         Bundle inte1 = getIntent().getExtras();
         String uss = inte1.getString("UserE");
@@ -48,6 +49,29 @@ public class Expediente extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Expediente.this, InicioB.class);
+                intent.putExtra("UserE", ue);
+                startActivity(intent);
+                finish();
+            }
+        });
+
+        diario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Expediente.this, Diarios.class);
+                intent.putExtra("User", useer);
+                intent.putExtra("UserE", ue);
+                startActivity(intent);
+                finish();
+
+            }
+        });
+
+        test.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Expediente.this, Testes.class);
+                intent.putExtra("User", useer);
                 intent.putExtra("UserE", ue);
                 startActivity(intent);
                 finish();

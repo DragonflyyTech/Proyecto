@@ -23,7 +23,7 @@ import java.util.List;
 public class Diario extends AppCompatActivity {
 
     private List<InfoDiario> lista;
-    private Info info = new Info();
+    private Info2 info2 = new Info2();
     Object object = null;
 
     EditText titulo, contenido;
@@ -41,8 +41,9 @@ public class Diario extends AppCompatActivity {
         Bundle inte = getIntent().getExtras();
         String us = inte.getString("User");
         BDUser bdUser = new BDUser(Diario.this);
-        Info2 info2 = bdUser.GetEspecialista(us);
+        info2 = bdUser.GetEspecialista(us);
         String uu = info2.getUsuario();
+        int id = info2.getId_espe();
 
         buttonregresar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -69,19 +70,6 @@ public class Diario extends AppCompatActivity {
         btnguardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent = getIntent();
-                if( intent != null)
-                {
-                    if( intent.getExtras() != null ) {
-                        object = intent.getExtras().get("Info");
-                        if (object != null) {
-                            if (object instanceof Info) {
-                                info = (Info) object;
-                            }
-                        }
-                    }
-                }
 
                 RadioButton feliz = findViewById(R.id.feliz);
                 RadioButton triste = findViewById(R.id.triste);
@@ -110,7 +98,7 @@ public class Diario extends AppCompatActivity {
 
                     infoDiario.setTitulo(String.valueOf(titulo.getText()));
                     infoDiario.setContenido(String.valueOf(contenido.getText()));
-                    infoDiario.setId_user(info.getId_user());
+                    infoDiario.setId_user(id);
                     infoDiario.setFecha((String) fecha.getText());
 
                     BDDiario bdDiario = new BDDiario(Diario.this);

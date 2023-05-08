@@ -67,7 +67,7 @@ public class Test1 extends AppCompatActivity {
 
                     InfoTest infoTest = new InfoTest();
 
-                    infoTest.setId_user(info.getId_user());
+                    infoTest.setId_user(info2.getId_espe());
                     infoTest.setPregunta1(String.valueOf(pregunta1.getText()));
                     infoTest.setPregunta2(String.valueOf(pregunta2.getText()));
                     infoTest.setPregunta3(String.valueOf(pregunta3.getText()));
