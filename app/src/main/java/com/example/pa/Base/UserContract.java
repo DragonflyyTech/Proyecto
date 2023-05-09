@@ -32,6 +32,7 @@ public class UserContract implements Serializable {
                     "nombre TEXT," +
                     "email TEXT," +
                     "edad TEXT," +
+                    "cedula TEXT," +
                     ")";
             return table;
         }
@@ -44,6 +45,7 @@ public class UserContract implements Serializable {
             values.put("nombre", info.getNombre());
             values.put("email", info.getMail());
             values.put("edad", info.getEdad());
+            values.put("cedula", info.getCedula());
             return values;
         }
     }

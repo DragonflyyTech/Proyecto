@@ -14,6 +14,8 @@ public class Info implements Serializable {
     private String usuario;
     private String mail;
     private String contra;
+
+    private String cedula;
     private List<InfoDiario> diarios = new ArrayList<>();
 
     public Info(){
@@ -66,6 +68,14 @@ public class Info implements Serializable {
 
     public void setContra(String contra) {
         this.contra = contra;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
     }
 
     public List<InfoDiario> getDiarios() {

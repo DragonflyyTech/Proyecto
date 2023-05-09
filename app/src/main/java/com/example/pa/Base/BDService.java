@@ -29,7 +29,8 @@ public class BDService extends SQLiteOpenHelper {
                 "contra TEXT NOT NULL," +
                 "nombre TEXT," +
                 "email TEXT," +
-                "edad TEXT)");
+                "edad TEXT,"+
+                "cedula TEXT)");
 
         sqLiteDatabase.execSQL("CREATE TABLE "+ TABLE_ESPE +"(" +
                 "id_espe INTEGER PRIMARY KEY AUTOINCREMENT," +

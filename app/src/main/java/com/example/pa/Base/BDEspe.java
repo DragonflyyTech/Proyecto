@@ -68,6 +68,7 @@ public class BDEspe extends BDService{
             info.setNombre(cursor.getString( 2 ) );
             info.setMail(cursor.getString(3));
             info.setEdad(cursor.getString(4));
+            info.setCedula(cursor.getString(5));
             usuarios.add( info );
             cursor.moveToNext( );
         }
@@ -89,6 +90,7 @@ public class BDEspe extends BDService{
             info.setNombre(cursor.getString( 3 ) );
             info.setMail(cursor.getString(4));
             info.setEdad(cursor.getString(5));
+            info.setCedula(cursor.getString(6));
             return info;
         }
         cursor.close();
@@ -111,6 +113,7 @@ public class BDEspe extends BDService{
             info.setNombre(cursor.getString( 3 ) );
             info.setMail(cursor.getString(4));
             info.setEdad(cursor.getString(5));
+            info.setCedula(cursor.getString(6));
             return info;
         }
         cursor.close();

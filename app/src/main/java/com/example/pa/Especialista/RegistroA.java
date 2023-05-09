@@ -27,6 +27,8 @@ public class RegistroA extends AppCompatActivity {
     private EditText email;
     private EditText user;
     private EditText contra;
+
+    private EditText cedula;
     public static final String archivo = "registro.json";
     private static final String TAG = "Registro";
 
@@ -58,6 +60,7 @@ public class RegistroA extends AppCompatActivity {
         email = findViewById(R.id.reg2mail);
         user = findViewById(R.id.reg2user);
         contra = findViewById(R.id.reg2pwd);
+        cedula = findViewById(R.id.reg2cedula);
 
         btnregr.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,6 +86,10 @@ public class RegistroA extends AppCompatActivity {
                     Toast.makeText( getApplicationContext() , "Campo de usuario vacio" , Toast.LENGTH_LONG ).show();
                     return;
                 }
+                if (cedula.getText().length() == 0){
+                    Toast.makeText( getApplicationContext() , "Campo de cedula vacio" , Toast.LENGTH_LONG ).show();
+                    return;
+                }
                 if (valuser(list, usr)){
                     Toast.makeText( getApplicationContext() , "El nombre de usuraio no está disponibe" , Toast.LENGTH_LONG ).show();
                     return;
@@ -97,6 +104,7 @@ public class RegistroA extends AppCompatActivity {
                 info.setMail(String.valueOf(email.getText()));
                 info.setUsuario(String.valueOf(user.getText()));
                 info.setContra(SHA.bytesToHex(SHA.createSha1(String.valueOf(contra.getText()))));
+                info.setCedula(String.valueOf(cedula.getText()));
                 usr = String.valueOf(user.getText());
                 mail = String.valueOf(email.getText());
 
