@@ -117,16 +117,44 @@ public class InicioA extends AppCompatActivity {
                 String pass = SHA.bytesToHex(SHA.createSha1(String.valueOf(contra.getText())));
                 String nuevous = String.valueOf(user.getText());
 
-                if (name.getText().length() == 0 || edad.getText().length() == 0 || mail.getText().length() == 0 || user.getText().length() == 0 || contra.getText().length() == 0) {
-                    Toast.makeText(getApplicationContext(), "Campo vacio", Toast.LENGTH_LONG).show();
+                if (name.getText().length() == 0) {
+                    name.setError("Campo de nombre vacio");
+                    name.requestFocus();
+                    return;
+                }
+                if (edad.getText().length() == 0){
+                    edad.setError("Campo de edad vacio");
+                    edad.requestFocus();
+                    return;
+                }
+                if(Integer.parseInt(String.valueOf(edad.getText())) < 15){
+                    edad.setError("Lo sentimos aún no tienes la edad suficiente para utilizar Psyche");
+                    edad.requestFocus();
+                    return;
+                }
+                if ( mail.getText().length() == 0){
+                    mail.setError("Campo de mail vacio");
+                    mail.requestFocus();
+                    return;
+                }
+                if (user.getText().length() == 0){
+                    user.setError("Campo de usuario vacio");
+                    user.requestFocus();
+                    return;
+                }
+                if (contra.getText().length() == 0){
+                    contra.setError("Campo de contraseña vacio");
+                    contra.requestFocus();
                     return;
                 }
                 if (!PatternsCompat.EMAIL_ADDRESS.matcher(mail.getText()).matches()) {
-                    Toast.makeText(getApplicationContext(), "Error de sintaxis en el mail", Toast.LENGTH_LONG).show();
+                    mail.setError("Error de sintaxis en el mail");
+                    mail.requestFocus();
                     return;
                 }
                 if (valuser(lista, usr)){
-                    Toast.makeText(getApplicationContext(), "El nombre de usuraio no está disponibe", Toast.LENGTH_LONG ).show();
+                    user.setError("El nombre de usuario no esta disponible");
+                    user.requestFocus();
                     return;
                 }
 

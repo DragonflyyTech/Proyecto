@@ -64,31 +64,43 @@ public class Registro extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (nombre.getText().length() == 0){
-                    Toast.makeText( getApplicationContext() , "Campo de nombre vacio" , Toast.LENGTH_LONG ).show();
+                    nombre.setError("Campo de nombre vacio");
+                    nombre.requestFocus();
                     return;
                 }
                 if(edad.getText().length() == 0){
-                    Toast.makeText( getApplicationContext() , "Campo de edad vacio" , Toast.LENGTH_LONG ).show();
+                    edad.setError("Campo de edad vacio");
+                    edad.requestFocus();
+                    return;
+                }
+                if(Integer.parseInt(String.valueOf(edad.getText())) < 15){
+                    edad.setError("Lo sentimos aún no tienes la edad suficiente para utilizar Psyche");
+                    edad.requestFocus();
                     return;
                 }
                 if(email.getText().length() == 0){
-                    Toast.makeText( getApplicationContext() , "Campo de mail vacio" , Toast.LENGTH_LONG ).show();
+                    email.setError("Campo de mail vacio");
+                    email.requestFocus();
                     return;
                 }
                 if(contra.getText().length() == 0){
-                    Toast.makeText( getApplicationContext() , "Campo de contraseña vacio" , Toast.LENGTH_LONG ).show();
+                    contra.setError("Campo de contraseña vacio");
+                    contra.requestFocus();
                     return;
                 }
                 if(user.getText().length() == 0){
-                    Toast.makeText( getApplicationContext() , "Campo de usuario vacio" , Toast.LENGTH_LONG ).show();
+                    user.setError("Campo de usuario vacio");
+                    user.requestFocus();
                     return;
                 }
                 if (valuser(lista, usr)){
-                    Toast.makeText( getApplicationContext() , "El nombre de usuraio no está disponibe" , Toast.LENGTH_LONG ).show();
+                    user.setError("El nombre de usuario no esta disponible");
+                    user.requestFocus();
                     return;
                 }
                 if(!PatternsCompat.EMAIL_ADDRESS.matcher(email.getText()).matches()){
-                    Toast.makeText( getApplicationContext() , "Error de sintaxis en el mail" , Toast.LENGTH_LONG ).show();
+                    email.setError("Error de sintaxis en el mail");
+                    email.requestFocus();
                     return;
                 }
 
